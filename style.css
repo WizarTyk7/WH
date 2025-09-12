@@ -1,0 +1,135 @@
+:root {
+  --bg: #0b0b12; /* fundo profundo */
+  --card: #11111a;
+  --rose: #ff6b9f;
+  --violet: #7c4dff;
+  --glow: #ffd0e1;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial; 
+  background: radial-gradient(1200px 800px at 10% 0%, #121225, var(--bg)); 
+  color: #fff; 
+  overflow-x: hidden;
+}
+
+/* Estrelas animadas no fundo */
+.stars { 
+  position: fixed; 
+  inset: 0; 
+  overflow: hidden; 
+  pointer-events: none; 
+  z-index: 0; 
+}
+
+.star { 
+  position: absolute; 
+  width: 2px; 
+  height: 2px; 
+  background: white; 
+  border-radius: 9999px; 
+  opacity: .6; 
+  animation: twinkle 4s infinite ease-in-out; 
+}
+
+@keyframes twinkle { 
+  0%,100% {
+    opacity:.2; 
+    transform: translateY(0);
+  } 
+  50% {
+    opacity:1; 
+    transform: translateY(-6px);
+  } 
+}
+
+/* Corações flutuantes suaves */
+.hearts { 
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  z-index: 0; 
+  overflow: hidden;
+}
+
+.heart { 
+  position: absolute; 
+  width: 14px; 
+  height: 14px; 
+  transform: rotate(45deg); 
+  animation: floatUp linear forwards; 
+  opacity: .75; 
+}
+
+.heart::before, .heart::after { 
+  content: ""; 
+  position: absolute; 
+  width: 14px; 
+  height: 14px; 
+  background: inherit; 
+  border-radius: 50%; 
+}
+
+.heart::before { 
+  left: -7px; 
+  top: 0; 
+}
+
+.heart::after { 
+  top: -7px; 
+  left: 0; 
+}
+
+@keyframes floatUp { 
+  from { 
+    transform: translateY(20px) rotate(45deg); 
+  } 
+  to { 
+    transform: translateY(-120vh) rotate(45deg); 
+    opacity: .1; 
+  } 
+}
+
+.glass { 
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); 
+  backdrop-filter: blur(8px); 
+  border: 1px solid rgba(255,255,255,.08); 
+}
+
+.shine { 
+  box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset, 0 10px 30px rgba(124,77,255,.15), 0 0 40px rgba(255,107,159,.12); 
+}
+
+/* Botão com brilho */
+.btn { 
+  background: linear-gradient(135deg, var(--rose), var(--violet)); 
+  box-shadow: 0 10px 30px rgba(255,107,159,.35); 
+}
+
+.btn:hover { 
+  filter: saturate(1.1) brightness(1.05); 
+}
+
+/* Divisor suave */
+.divider { 
+  height: 1px; 
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.12), rgba(255,255,255,0)); 
+}
+
+a { 
+  color: #ffd0e1; 
+  text-decoration: underline; 
+}
+
+/* Scroll mais bonito */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rose);
+  border-radius: 10px;
+}
